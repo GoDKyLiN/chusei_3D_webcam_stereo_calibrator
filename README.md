@@ -1,0 +1,5 @@
+适用于CHUSEI_3D_WEBCAM摄像头的拍摄及标定程序
+camera_stereo_setting.sh为基于uvcdynctrl的摄像头模式切换程序
+camera.pp负责调用opencv启用摄像头并拍照为标定做准备
+stereo_calibrator负责标定双目摄像头
+参考资料：https://blog.csdn.net/weixin_48592526/article/details/122848467?fromshare=blogdetail&sharetype=blogdetail&sharerId=122848467&sharerefer=PC&sharesource=GoDKyLiN&sharefrom=from_link
