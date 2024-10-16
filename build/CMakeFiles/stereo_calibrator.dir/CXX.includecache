@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/runlin/Desktop/chusei_3D_webcam_stereo_calibrator/stereo_calibrator.cpp
+vector
+-
+string
+-
+algorithm
+-
+iostream
+-
+iterator
+-
+boost/format.hpp
+-
+opencv2/opencv.hpp
+-
+

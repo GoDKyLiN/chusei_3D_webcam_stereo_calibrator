@@ -12,10 +12,10 @@ using namespace cv;                                         //依旧很长的开
 
 boost::format left_imgs("./left/left%d.jpg");
 boost::format right_imgs("./right/right%d.jpg");
-const int frameNumber = 49;                             //相机标定时需要采用的图像帧数
+const int frameNumber = 64;                             //相机标定时需要采用的图像帧数
 const int squareSize = 30;                              //标定板黑白格子的大小 单位mm
 
-const int imageWidth = 640;                             //摄像头的分辨率
+const int imageWidth = 320;                             //摄像头的分辨率
 const int imageHeight = 480;
 const int boardWidth = 8;                               //横向的角点数目
 const int boardHeight = 6;                              //纵向的角点数据
@@ -49,21 +49,21 @@ fx 0 cx
 0 fy cy
 0 0  1
 */
-Mat cameraMatrixL = (Mat_<double>(3, 3) << 422.91076,   0.     , 147.85721,
-        0.     , 851.11931, 164.40367,
+Mat cameraMatrixL = (Mat_<double>(3, 3) << 375.176441,   0.     , 375.176441,
+        0.     , 375.176441, 242.581521,
         0.     ,   0.     ,   1.     );                                                                           //这时候就需要你把左右相机单目标定的参数给写上
 //获得的畸变参数
-Mat distCoeffL = (Mat_<double>(5, 1) << 0.064046, -0.028228, -0.012504, -0.001612, 0.000000);
+Mat distCoeffL = (Mat_<double>(5, 1) << 0.108348,-0.221116 ,-0.006408, -0.023551, 0.000000);
 /*
 事先标定好的右相机的内参矩阵
 fx 0 cx
 0 fy cy
 0 0  1
 */
-Mat cameraMatrixR = (Mat_<double>(3, 3) << 346.8896 ,   0.     , 171.24669,
-           0.     , 692.31923, 203.88646,
+Mat cameraMatrixR = (Mat_<double>(3, 3) << 370.633139 ,   0.     , 141.453607,
+           0.     , 740.800150, 204.370519,
            0.     ,   0.     ,   1.     );
-Mat distCoeffR = (Mat_<double>(5, 1) << 0.001084, 0.002054, -0.006897, 0.003246, 0.000000);
+Mat distCoeffR = (Mat_<double>(5, 1) << 0.090101, -0.237516 ,-0.006674, -0.017308, 0.000000);
 
 /*计算标定板上模块的实际物理坐标*/
 void calRealPoint(vector<vector<Point3f>>& obj, int boardwidth, int boardheight, int imgNumber, int squaresize)

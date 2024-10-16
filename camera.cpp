@@ -28,7 +28,7 @@ int main()
     Camera >> frame;
     imshow("【双目视图】", frame);
     //cv::waitKey(30);
-    system("/home/runlin/Desktop/Camera/camera_stereo_setting.sh");  //绝对路径
+    system("../camera_stereo_setting.sh");  //绝对路径
     //cv::waitKey(30);
     
     int count = 0;
@@ -38,10 +38,10 @@ int main()
         Camera >> frame;
         if (frame.empty()) break;
         Mat doubleImage;
-        resize(frame, doubleImage, Size(640, 240), 0, 0, INTER_AREA);
+        resize(frame, doubleImage, Size(640, 480), 0, 0, INTER_AREA);
         imshow("【双目视图】", doubleImage);
-        Mat LeftImage = doubleImage(Rect(0, 0, 320, 240));
-        Mat RightImage = doubleImage(Rect(320, 0, 320, 240));
+        Mat LeftImage = doubleImage(Rect(0, 0, 320, 480));
+        Mat RightImage = doubleImage(Rect(320, 0, 320, 480));
         Mat grayImageL;
         cvtColor(LeftImage, grayImageL, CV_BGR2GRAY);
         //imshow("【左视图】", LeftImage);
